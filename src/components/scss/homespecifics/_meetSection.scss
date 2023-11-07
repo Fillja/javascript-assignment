@@ -1,0 +1,63 @@
+.meet-section{
+    background: #F0D082;
+    padding-top: 125px;
+    padding-bottom: 70px;
+    
+    .container{
+
+        .part-one{
+            // Display sköter positionering av titel-delen
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            padding-bottom: 100px;
+
+            h2{
+                margin-top: 20px;
+            }
+
+            .btn-transparent{
+                align-self: center;
+                margin-top: 15px;
+
+                @media (min-width: 1400px){
+                    align-self: end;
+                    margin-bottom: 5px;
+                    margin-top: 0px;
+                }
+            }
+
+            @media (min-width: 1400px){
+                flex-direction: row;
+                text-align: start;
+            }
+        }
+
+        .part-two{
+            // Display sköter positionering av coworker-delen
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 40px;
+
+            img{
+                height: auto;
+                width: 100%;
+            }
+
+            @media (min-width: 768px){
+                display: grid;
+                grid-template-columns: auto auto;
+                justify-content: space-evenly;
+            }
+
+            @media (min-width: 1400px){
+                justify-content: space-between;
+                display: flex;
+                flex-direction: row;
+            }
+        }
+    }
+}

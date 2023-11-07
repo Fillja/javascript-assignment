@@ -1,0 +1,135 @@
+.contact-form{
+    // Media query plockar bort "white-space" under form i mobilläge
+    @media (min-width: 576px){
+        padding-bottom: 125px;
+    }
+
+    .info{
+        // Display sköter hantering av boxarna (responsiv)
+        display: block;
+        margin-top: 120px;
+
+        @media (min-width: 992px){
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        }
+
+        .columns{
+            // Display sköter hantering av innehållet i boxarna
+            display: grid;
+            grid-template-columns: auto auto;
+            border: 1px solid #DAD9D3;
+
+            @media(min-width: 992px){
+            width: 370px;
+            height: 205px;
+            }
+
+            @media (min-width: 1400px){
+                width: 420px;
+            }
+
+            h3{
+                font-family: 'DM sans', sans-serif;
+                font-size: 22px;
+                font-weight: 700;
+                margin-top: 60px;
+                margin-bottom: 20px;
+            }
+
+            i{
+                font-size: 20px;
+                color: #ffffff;
+                background-color: #191919;
+                align-self: start;
+                text-align: center;
+                width: 60px;
+                height: 60px;
+                border-radius: 50px;
+                padding: 20px 15px 15px;
+                margin-left: 60px;
+                margin-top: 50px;
+            }
+
+            a{
+                display: block;
+                text-decoration: none;
+                color: #191919;
+                font-family: 'Inter', sans-serif;
+                font-size: 14px;
+                // Begränsar width så hover inte aktiverar utanför elementet.
+                width: max-content;
+
+                @media (min-width: 1400px){
+                    font-size: 18px;
+                    margin-right: 100px;
+                }
+
+                &:hover{
+                    color: #7b7b7b;
+                    text-decoration: underline;
+                }
+
+                p{
+                    margin: 0px;
+                }
+            }
+        }
+    }
+
+    .form-part{
+        background: #F0EFE9;
+        margin-top: 80px;
+        padding-bottom: 100px;
+
+        h2{
+            font-family: 'DM sans', sans-serif;
+            font-size: 45px;
+            font-weight: 700;
+            text-align: center;
+            padding-top: 150px;
+        }
+
+        form{
+            margin-top: 30px;
+            text-align: center;
+
+            label{
+                margin-bottom: 10px;
+                margin-top: 20px;
+            }
+
+            textarea{
+                padding: 20px;
+                border-radius: 40px;
+                border: hidden;
+                width: 80%;
+                height: 160px;
+                resize: none;
+            }
+
+            input{
+                padding: 20px;
+                border-radius: 40px;
+                border: hidden;
+                width: 80%;        
+            }
+
+            //Validering för styling
+            span {
+                display: block;
+            }
+            
+            .error-span {
+                height: 2rem;
+                color: #7e3737;
+            }
+        }
+
+        button{
+            margin: 45px 0px;
+            width: 80%;
+        }
+    }
+}

@@ -1,0 +1,101 @@
+.articles-section{
+    padding-top: 120px;
+    padding-bottom: 90px;
+
+    .container{
+
+        .part-one{
+            // Display hanterar positionering av titel & knapp (responsivt)
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: center;
+            padding-bottom: 100px;
+
+            h2{
+                margin-top: 20px;
+            }
+
+            .btn-transparent{
+                align-self: center;
+                margin-top: 15px;
+
+                @media (min-width: 1400px){
+                    align-self: end;
+                    margin-bottom: 5px;
+                    margin-top: 0px;
+                }
+            }
+
+            @media (min-width: 1400px){
+                flex-direction: row;
+                text-align: start;
+            }
+        }
+
+        .part-two{
+            // Display hanterar positionering av artiklarna och dess innehåll (responsivt)
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 30px;
+            margin-bottom: 70px;
+
+            @media (min-width: 1200px){
+                flex-direction: row;
+                text-align: start;
+            }
+
+            img{
+                height: auto;
+                width: 100%;
+                margin-bottom: 36px;
+            }
+            
+            a{
+                text-decoration: none;
+                color:#191919;
+                // Den relativa positionen som datum förhåller sig till
+                position: relative;
+
+                .business-color{
+                    color: #6A6C71;
+                }
+
+                h3{
+                    margin-bottom: 28px;
+
+                    @media (min-width: 1200px){
+                        max-width: 310px;
+                    }
+                }
+
+                &:hover{
+                    text-decoration: underline;
+
+                    img{
+                        opacity: 0.5;
+                    }
+                }
+
+                .absolute-date{
+                    // Datum-div positioneras i a-länk (artikel)
+                    position: absolute;
+                    text-align: center;
+                    top: 16px;
+                    left: 16px;
+                    background-color: #f9d783;
+                    width: 56px;
+                    height: 64px;
+
+                    h3{
+                        margin-bottom: 0px;
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }   
+    }
+
+}

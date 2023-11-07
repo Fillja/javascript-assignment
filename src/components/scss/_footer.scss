@@ -1,0 +1,117 @@
+footer{
+    background-color: #0E1021;
+    color: white;
+
+    .top-footer{
+        padding-top: 115px;
+        padding-bottom: 90px;
+        position: relative;
+        z-index: 0;
+
+        .squiggly-lines{
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+        }
+
+        .footer-menu{
+            // Display sköter positioneringen av länk-listorna (responsivt)
+            display: flex;
+            justify-content: space-between;
+
+            p{
+                display: none;
+
+                @media(min-width: 992px){
+                    display: block;
+                    max-width: 300px;
+                    margin-top: 35px;
+                }
+            }
+
+            .link-list{
+                // Länk-listor försvinner i mobilläge och ersätts av en menu-bar
+                display: none;
+
+                @media (min-width: 992px){
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                h3{
+                    margin-bottom: 50px;
+                }
+
+                a{
+                    text-decoration: none;
+                    color: white;
+                    margin-bottom: 25px;
+                    // Begränsar width så hover inte aktiverar utanför elementet.
+                    width: max-content;
+
+                    &:hover{
+                        text-decoration: underline;
+                        color: hotpink;
+                    }
+                }
+            }
+
+            .menu-bars{
+                // Menubars syns i mobilläge
+                border: none;
+                background-color: transparent;
+                color: white;
+                font-size: 25px;
+
+                @media (min-width: 992px){
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .footer-border{
+        border: solid 1px #45454590;
+    }
+
+    .bottom-footer{
+        // Display och flex-direction sköter positionering (responsivt)
+        padding: 35px 0px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+
+        @media (min-width: 992px){
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+
+        p{
+            margin: 0;
+            font-size: 14px;
+
+            color: hotpink;
+
+            @media (min-width: 576px){
+                font-size: 16px;
+                color: white;
+            }
+        }
+
+        .social-media{ 
+
+            a{
+                color: white;
+                font-size: 1.3rem;
+                margin-left: 25px;
+
+                &:hover{
+                    color: hotpink;
+                }
+            }
+        }
+    }
+    
+}

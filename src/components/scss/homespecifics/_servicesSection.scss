@@ -1,0 +1,87 @@
+.services-section{
+    background-color: #F0EFE9;
+    position: relative;
+    z-index: 0;
+
+    .squiggly-lines{
+        bottom: 0;
+        right: 0;
+        z-index: -1;
+    }
+
+    .container{
+        padding: 120px 0px;
+        text-align: center;
+
+        @media(min-width: 1400px){
+            text-align: start;
+        }
+
+        h2{
+            margin-bottom: 50px;
+        }
+
+        .services-box{
+            // Display sköter hanteringen av boxarna (responsivt)
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            margin-bottom: 40px;
+            gap: 30px;
+
+            @media (min-width: 768px){
+                display: grid;
+                grid-template-columns: auto auto;
+                justify-content: space-evenly;
+            }
+
+            @media (min-width: 1400px){
+                justify-content: space-between;
+                display: flex;
+                flex-direction: row;
+            }
+
+            a{
+                //Nedan följer styling för innehållet i boxarna
+                text-decoration: none;
+                color: #191919;
+                background-color: white;
+                width: 310px;
+                height: 330px;
+                padding: 45px 30px;
+
+                .border-bit{
+                    //En fuling för att få dit strecket ovanför texten
+                    width: 40px;
+                    height: 1px;
+                    background-color: #191919;
+                    margin-bottom: 45px;
+                }
+
+                p{
+                    font-weight: 200;
+                }
+
+                i{
+                    background-color: #191919;
+                    color: white;
+                    border-radius: 100%;
+                    padding-top: 18px;
+                    font-size: 20px;
+                    height: 56px;
+                    width: 56px;
+                    text-align: center;
+                }
+
+                &:hover{
+                    background-color: #f9d783;
+                    i{
+                        background-color: white;
+                        color: #191919;
+                    }
+                }
+            }
+        }
+    }
+}

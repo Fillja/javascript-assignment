@@ -1,0 +1,77 @@
+html, body{
+    color: #191919;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    // Ändrat font-weight gentemot designen. Då det ej reflekterade bra på sidan.
+    font-weight: 300;
+
+    h2{
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 700;
+        font-size: 35px;
+
+        @media (min-width: 768px){
+            font-size: 45px;
+        }
+    }
+
+    h3{
+        font-size: 22px;
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 700;
+    }
+
+    h4{
+        font-size: 20px;
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 700;
+    }
+
+    // Ändrat font-size gentemot designen. Då det ej reflekterade bra på sidan.
+    .orange-p{
+        font-size: 16px;
+        font-weight: 400;
+        color: #F94D1C;
+        margin-bottom: 10px;
+    }
+}
+
+.squiggly-lines{
+    // Global position angiven till bakgrunds-linjerna, platsen sköts längre ner.
+    position: absolute;
+}
+
+.transition{
+    // Global transition-klass för länkar som ej är knapparna ovan
+    transition: all 300ms ease-in-out;
+}
+
+.center-content{
+    // Global klass för att centrera element
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.end-content{
+    // Global klass för att flytta element till höger
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.success {
+    background-color: #deffeb;
+}
+
+.error {
+    background-color: #f6d9d9;
+}
+
+.api-success {
+    color: #347231;
+}
+
+.api-error {
+    color: #7e3737;
+}

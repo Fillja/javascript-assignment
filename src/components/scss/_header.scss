@@ -1,0 +1,137 @@
+header{
+    // Gäller header på alla sidor
+    background-color: #F0EFE9;
+    padding: 16px;
+
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 75px;
+
+        .menu{
+            display: none;
+            // Anger hur stor plats flex ska ta upp, liknande fractions
+            flex: 1;
+
+            @media (min-width: 992px){
+                display: block;
+            }
+
+            .top-menu{
+                display: flex;
+                justify-content: end;
+                align-items: center;
+                border-bottom: 1px solid #DAD9D3;
+                padding-bottom: 10px;
+
+                @media (min-width: 1200px){
+                    justify-content: space-between;
+
+                }
+
+                .contact-info{
+                    display: none;
+                    align-items: center;
+
+                    @media (min-width: 1200px){
+                        display: flex;
+    
+                    }
+
+                    .content-box{
+                        border-right: 1px solid #DAD9D3;
+                        padding-right: 30px;
+
+                        a{
+                            margin-left: 30px;
+                            font-family: 'Inter', sans-serif;
+                            color: #191919;
+                            font-size: 15px;
+                            text-decoration: none;                     
+
+                            &:hover{
+                                text-decoration: underline;
+                                color: #7b7b7b;
+                            }
+                        } 
+
+                        i{
+                            margin-right: 5px;
+                            font-size: 1.2em;
+                        }
+
+                        &.last{
+                            border: none;
+                        }
+                    }
+                }
+
+                .social-media{ 
+                    a{
+                        color: #191919;
+                        font-size: 1.3rem;
+                        margin-left: 10px;
+
+                        &:hover{
+                            color: #7b7b7b;
+                        }
+                    }
+                }
+            }
+
+            .main-menu{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: 10px;
+
+                nav{
+                    a{
+                        display: inline-block;
+                        color: #191919;
+                        text-decoration: none;
+                        margin-right: 35px;
+                        position: relative;
+
+                        // Anger fetstil till aktiva sidan
+                        &.active{
+                            font-weight: 500;
+                        }
+
+                        // Följande kod given av Hans
+                        &.active::after,
+                        &:hover::after{
+                            content: '';
+                            position: absolute;
+                            font-weight: 500;
+                            height: 2px;
+                            width: 15px;
+                            background-color: #191919;
+                            left: 50%;
+                            bottom: -3px;
+                            transform: translate((calc(50% - 15px)));
+                        }
+                    }
+                }
+                
+                .btn-login{
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                }
+
+            }
+
+        }
+
+        .menu-bars{
+            border: none;
+            background-color: transparent;
+            font-size: 25px;
+
+            @media (min-width: 992px){
+                display: none;
+            }
+        }
+    }
+}

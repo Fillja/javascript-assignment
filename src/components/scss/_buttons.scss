@@ -1,0 +1,95 @@
+.btn-yellow{
+    // En global styling för gula knappar på sidan
+    background-color: #f9d783;
+    border: 1px solid #f9d783;
+    color: #191919;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 30px;
+
+    transition: all 300ms ease-in-out;
+
+    i{
+        margin-left: 8px;
+        font-size: 0.9em;   
+    }
+
+    &:hover{
+        background-color: #191919;
+        border-color: #191919;
+        color: #F0EFE9;
+    }
+}
+
+.btn-black{
+    // En global styling för svarta knappar på sidan
+    background-color: #191919;
+    border: 1px solid #191919;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 30px;
+
+    transition: all 300ms ease-in-out;
+
+    i{
+        margin-left: 8px;
+        font-size: 0.9em;   
+    }
+
+    &:hover{
+        background-color: transparent;
+        border-color: #191919;
+        color: #191919;
+    }
+}
+
+.btn-transparent{
+    // En global styling för transparenta knappar på sidan
+    background-color: transparent;
+    border: 1px solid #191919;
+    color: #191919;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 30px;
+
+    transition: all 300ms ease-in-out;
+
+    i{
+        margin-left: 8px;
+        font-size: 0.9em;   
+    }
+
+    &:hover{
+        background-color: #191919;
+        border-color: #191919;
+        color: #F0EFE9;
+    }
+}
+
+.round-buttons{
+    // Global klass för prickar som indikerar vart du är på sektioner med sido-scrollning
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+
+    a{
+        text-decoration: none;
+        color: #191919;
+        font-size: 12px;
+        opacity: 0.3;
+
+        &.active,
+        &:hover{
+            opacity: 1;
+        }
+
+    }
+
+}

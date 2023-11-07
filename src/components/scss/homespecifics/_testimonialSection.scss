@@ -1,0 +1,88 @@
+.testimonial-section{
+    background: #F0D082;
+    padding-bottom: 120px;
+
+    .container{
+        background-color: white;
+        text-align: center;
+        padding: 120px 0px;
+        
+        @media(min-width: 576px){
+            padding: 120px 120px;
+        }
+            
+
+        h2{
+            margin-top: 35px;
+            margin-bottom: 100px;
+        }
+
+        //Begränsar width på den vita bakgrundsfärgen
+        @media(min-width: 1400px){
+            max-width: 1520px;
+        }
+
+        .reviews{
+            // Display sköter positionering av content-boxarna
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: start;
+            align-items: center;
+
+            @media (min-width: 1400px){
+                flex-direction: row;
+            }
+
+            .content-box{
+                // Nedanför följer styling för alla boxarna med namn, titel, stjärnor osv...
+                margin-bottom: 100px;
+                text-align: center;
+
+                @media (min-width: 576px){
+                    text-align: start;
+                    max-width: 325px;
+                    max-height: 310px;
+                }
+
+                .review-text{
+                    margin-bottom: 40px;
+                    line-height: 1;
+
+                    @media (min-width: 576px){
+                        line-height: 1.8;
+                    }
+                }
+
+                .stars{
+                    font-size: 14px;
+                    color: #F94D1C;
+                    margin-bottom: 30px;
+                }
+
+                .reviewers{
+                    @media (min-width: 1400px){
+                        display: flex;
+                    }
+
+                    img{
+                        display: none;
+                        margin-right: 20px;
+
+                        @media (min-width: 576px){
+                            display: inline;
+                        }
+                    }
+
+                    .orange-p{
+                        border-bottom: solid 1px #DAD9D3;
+
+                        @media (min-width: 1400px){
+                            border: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
