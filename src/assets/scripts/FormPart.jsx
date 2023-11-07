@@ -1,86 +1,78 @@
 import { useState } from 'react'
-// import ValidateName from '@scripts/ValidateName';
-// import ValidateEmail from '@scripts/ValidateEmail';
-// import ValidateMessage from '@scripts/ValidateMessage';
 
 const FormPart = () => {
 
-
-  const validateName = () => {
-    let formName = document.getElementById('form-name')
-
-    if(/^[ a-zA-ZàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ'`'\-]{2,}$/.test(name)){
-      formName.classList.add('success');
-      formName.classList.remove('error');
-      document.getElementById('name-error').innerHTML = '';
-      
+  //Validerings-funktioner med Regex
+  const validateName = (value) => {
+      if(/^[ a-zA-ZàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ'`'\-]{2,}$/.test(value))
+        return false
       return true
-    }    
-    else {
-      formName.classList.add('error');
-      formName.classList.remove('success');
-      document.getElementById('name-error').innerHTML = errorMessages.nameError
-
-      return false
-    }
   }
 
-  const validateEmail = () => {
-    let formEmail = document.getElementById('form-email')
-
-    if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/.test(email)){
-      formEmail.classList.add('success');
-      formEmail.classList.remove('error');
-      document.getElementById('email-error').innerHTML = '';
-
-      return true
-    }    
-    else {
-      formEmail.classList.add('error');
-      formEmail.classList.remove('success');
-      document.getElementById('email-error').innerHTML = errorMessages.emailError
-
+  const validateEmail = (value) => {
+    if(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,})+$/.test(value))
       return false
-    }
+    return true
   }
 
-  const validateMessage = () => {
-    let formMessage = document.getElementById('form-message')
-    
-    if(/^.{2,450}$/.test(message)){
-      formMessage.classList.add('success');
-      formMessage.classList.remove('error');
-      document.getElementById('message-error').innerHTML = '';
-
-      return true
-    }    
-    else {
-      formMessage.classList.add('error');
-      formMessage.classList.remove('success');
-      document.getElementById('message-error').innerHTML = errorMessages.messageError
-
+  const validateMessage = (value) => {
+    if(/^.{2,450}$/.test(value))
       return false
-    }
+    return true
   }
 
   const [name, setName] = useState('');
+  const [nameError, setNameError] = useState(false);
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState(false);
   const [message, setMessage] = useState('');
+  const [messageError, setMessageError] = useState(false);
+  //Extra useState för att bekräfta meddelande efter API har svarat
+  const [messageConfirm, setMessageConfirm] = useState('');
 
-  const errorMessages = {
-    nameError: 'You must provide a valid name of at least 2 characters.', 
-    emailError: 'You must provide a valid email.', 
-    messageError: 'Your message has to be at least 2 characters and a maximum of 450 characters.'
+  //Validering vid förändring i input
+  const handleChange = (e) => {
+    
+    switch (e.target.name) {
+      case 'name':
+        setName(e.target.value)
+        setNameError(validateName(e.target.value))
+      break;
+      case 'email':
+        setEmail(e.target.value)
+        setEmailError(validateEmail(e.target.value))
+      break;
+      case 'message':
+        setMessage(e.target.value)
+        setMessageError(validateMessage(e.target.value))
+      break;
+    }
   }
 
-  const validate = async () => {
+  //Validering vid submit av formuläret
+  const validate = async (e) => {
+    e.preventDefault()
 
-    validateName(name)
-    validateEmail(email)
-    validateMessage(message)
-
+    for (let element of e.target) {
+      switch (element.name) {
+        case 'name':
+          setName(element.value)
+          setNameError(validateName(element.value))
+        break;
+        case 'email':
+          setEmail(element.value)
+          setEmailError(validateEmail(element.value))
+        break;
+        case 'message':
+          setMessage(element.value)
+          setMessageError(validateMessage(element.value))
+        break;
+      }
+    }
+ 
     try {
-      if(validateName() && validateEmail() && validateMessage() === true){
+      if(!nameError && !emailError && !messageError){
+        console.log('skicka till api')
 
         const json = JSON.stringify({
           name: name,
@@ -97,12 +89,10 @@ const FormPart = () => {
         })
   
         if(res.status === 200){
-          document.getElementById('message-confirm').innerHTML = "Thank you for contacting Crito, your message has been sent."
-          document.getElementById('message-confirm').classList.add('api-success')
+          setMessageConfirm('Your message has been sent. Thank you for contacting Crito!')
         }
         else {
-          document.getElementById('message-confirm').innerHTML = "Something went wrong, please try again."
-          document.getElementById('message-confirm').classList.add('api-error')
+          setMessageConfirm('Your form is invalid!')
         }
   
       }
@@ -111,43 +101,42 @@ const FormPart = () => {
     }
   }
 
-  // const charCounter = () => {
-  //   const counter = document.getElementById('char-counter');
-  
-  //   if(message < 2){
-  //     counter.innerHTML = ' ';
-  //   }
-  //   else{
-  //     counter.innerHTML = `${message.length}/450 characters.`;
-  //   }
-  
-  //   if(message.length > 450){
-  //     counter.classList.add('error-span')
-  //   }
-  //   else{
-  //     counter.classList.remove('error-span')
-  //   }
-
-  //   onChangeCapture={() => {charCounter()}}
-  // }
   
   return (
-    <form onSubmit={() => {event.preventDefault()}} noValidate>
-      <label htmlFor="form-name">Name</label><br></br>
-      <input id="form-name" type="text" placeholder="Name*" value={name} onBlur={() => {validateName()}} onChange={(e) => setName(e.target.value)}/><br></br>
-      <span className="error-span" id="name-error"></span>
+    <form onSubmit={validate} noValidate>
+      {/* Labels blir error-message med röd färg om error är true */}
+      <label htmlFor="form-name" className={nameError ? 'error': ''}>Name{nameError? ' has to be at least 2 characters long.' : ''}</label><br></br>
+      <input 
+        id="form-name" 
+        type="text" 
+        name="name" 
+        placeholder="Name*" 
+        value={name} 
+        onChange={(e) => handleChange(e)}/><br></br>
 
-      <label htmlFor="form-email">Email</label><br></br>
-      <input id="form-email" type="email" placeholder="Email*" value={email} onBlur={() => {validateEmail()}} onChange={(e) => setEmail(e.target.value)}/><br></br>
-      <span className="error-span" id="email-error"></span>
+      <label htmlFor="form-email" className={emailError ? 'error': ''}>Email{emailError? ' has to be valid.' : ''}</label><br></br>
+      <input 
+        id="form-email" 
+        type="email" 
+        name="email" 
+        placeholder="Email*" 
+        value={email} 
+        onChange={(e) => handleChange(e)}/>
+      <br></br>
 
-      <label htmlFor="form-message">Your Message</label><br></br>
-      <textarea id="form-message" type="text" placeholder="Your Message*" value={message} onBlur={() => {validateMessage()}} onChange={(e) => setMessage(e.target.value)}/><br></br>
-      {/* <span id="char-counter"></span> */}
-      <span className="error-span" id="message-error"></span>
+      <label htmlFor="form-message" className={messageError ? 'error': ''}>Your message{messageError? ' has to be between 2 and 450 characters long.' : ''}</label><br></br>
+      <textarea 
+        id="form-message" 
+        type="text" 
+        name="message" 
+        placeholder="Your Message*" 
+        value={message} 
+        onChange={(e) => handleChange(e)}/>
+      <br></br>
 
-      <button type="submit" className="btn-yellow" onClick={() => {validate()}}>Send Message<i className="fa-regular fa-arrow-up-right"></i></button>
-      <span id="message-confirm"></span>
+      <button type="submit" className="btn-yellow">Send Message<i className="fa-regular fa-arrow-up-right"></i></button>
+      {/* Span som bekräftar success/fail från API */}
+      <span>{messageConfirm}</span>
     </form>
   )
 }

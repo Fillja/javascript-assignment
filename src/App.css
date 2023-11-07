@@ -168,14 +168,6 @@ html .orange-p, body .orange-p {
 }
 
 .error {
-  background-color: #f6d9d9;
-}
-
-.api-success {
-  color: #347231;
-}
-
-.api-error {
   color: #7e3737;
 }
 
@@ -1307,10 +1299,8 @@ footer .bottom-footer .social-media a:hover {
 }
 .contact-form .form-part form span {
   display: block;
-}
-.contact-form .form-part form .error-span {
-  height: 2rem;
-  color: #7e3737;
+  font-size: 20px;
+  font-weight: 500;
 }
 .contact-form .form-part button {
   margin: 45px 0px;
