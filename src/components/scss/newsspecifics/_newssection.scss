@@ -65,11 +65,26 @@
             }   
         }
 
-        a{
-            padding-bottom: 80px;
+        .nav-buttons{
             display: flex;  
             justify-content: center;
             align-items: center;
+            gap: 5px;
+
+            .small-button{
+                background-color: #ffffff;
+                border: solid 1px #DAD9D3;
+                height: 40px;
+                width: 40px;
+                border-radius: 10px;
+                margin-bottom: 80px;
+                transition: all 200ms ease-in-out;
+
+                &:hover{
+                    background-color: #191919;
+                    color: #ffffff;
+                }
+            }
         }
     }
 }

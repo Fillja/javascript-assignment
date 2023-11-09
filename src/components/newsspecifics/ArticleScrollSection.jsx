@@ -1,9 +1,11 @@
 import React from 'react'
+import Button from '@generics/Button'
 import { useArticles } from '../../assets/scripts/ArticlesContext'
 import { Link } from 'react-router-dom'
-import SmallButton from '@generics/SmallButton'
 
-const NewsSection = () => {
+
+const ArticleScrollSection = () => {
+
     const { articles } = useArticles()
 
     const getMonth = (number) => {
@@ -13,10 +15,16 @@ const NewsSection = () => {
     }
 
   return (
-    <section className = "news-section">
-        <div className = "container">
-            <h2>Our News & Articles</h2>
-            <div className='articles'>
+    <div className='article-scroll-section'>
+        <div className='container'>
+            <div className='title-part'>
+                <div>
+                    <p className='orange-p'>Articles & News</p>
+                    <h2>Get Every Single Articles & News</h2>
+                </div>
+                <Button color="btn-transparent" text="Browse Articles" url="#"/>
+            </div>
+            <div className='scroll-part'>
                 {
                     articles.map(article => (
                         <Link to={`/news/${article.id}`} key={article.id} className="article-item">
@@ -32,18 +40,9 @@ const NewsSection = () => {
                     ))
                 }
             </div>
-            <div className='nav-buttons'>
-                <SmallButton text="<" />
-                <SmallButton text="1" />
-                <SmallButton text="2" />
-                <SmallButton text="3" />
-                <SmallButton text="..." />
-                <SmallButton text="9" />
-                <SmallButton text=">" />
-            </div>
         </div>
-    </section>
+    </div>
   )
 }
 
-export default NewsSection
+export default ArticleScrollSection

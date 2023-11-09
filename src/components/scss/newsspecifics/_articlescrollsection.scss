@@ -1,0 +1,67 @@
+.article-scroll-section{
+    background-color: #F0EFE9;
+    padding-top: 30px;
+    padding-bottom: 70px;
+
+    .container {
+        
+        .title-part{
+            display: flex;
+            justify-content: space-between;
+
+            .btn-transparent{
+                align-self: end;
+            }
+        }
+
+        .scroll-part {
+            display: flex;
+            gap: 30px;
+            margin: 30px 0px;
+            overflow-x: auto;
+
+            .article-item {
+                width: 440px;
+                height: 425px;
+                position: relative;
+                text-decoration: none;
+                color: #191919;
+                
+                &:hover{
+
+                    .article-title{
+                        text-decoration: underline;
+                    }
+
+                    img{
+                        opacity: 0.5;
+                    }
+                }
+
+                .absolute-date{
+                    position: absolute;
+                    text-align: center;
+                    top: 16px;
+                    left: 16px;
+                    background-color: #f9d783;
+                    width: 56px;
+                    height: 64px;
+
+                    .p-month{
+                        margin: 0;
+                    }
+
+                    .h3-date{
+                        margin: 0;
+                        margin-top: 5px;
+                    }
+                }
+    
+                img{
+                    width: 420px;
+                    height: 230px;
+                }
+            }
+        }
+    }
+}
