@@ -2,6 +2,7 @@
 @import './components/scss/base.scss';
 @import './components/scss/footer.scss';
 @import './components/scss/buttons.scss';
+@import './components/scss/genericshowcase.scss';
 @import './components/scss/homespecifics/showcaseSection.scss';
 @import './components/scss/homespecifics/featuresSection.scss';
 @import './components/scss/homespecifics/aboutSection.scss';
@@ -13,6 +14,7 @@
 @import './components/scss/homespecifics/articlesSection.scss';
 @import './components/scss/homespecifics/signupSection.scss';
 
-@import './components/scss/contactspecifics/contactshowcase.scss';
 @import './components/scss/contactspecifics/contactform.scss';
 @import './components/scss/contactspecifics/contactmap.scss';
+
+@import './components/scss/newsspecifics/newssection.scss';

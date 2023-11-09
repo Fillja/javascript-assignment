@@ -11,6 +11,7 @@ export default defineConfig({
       '@generics': path.resolve(__dirname, 'src/components/generics'),
       '@homespecifics': path.resolve(__dirname, 'src/components/homespecifics'),
       '@contactspecifics': path.resolve(__dirname, 'src/components/contactspecifics'),
+      '@newsspecifics': path.resolve(__dirname, 'src/components/newsspecifics'),
       '@images': path.resolve(__dirname, 'src/assets/images'),
       '@scripts': path.resolve(__dirname, 'src/assets/scripts')
     }
